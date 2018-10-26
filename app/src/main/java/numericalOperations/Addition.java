@@ -3,7 +3,7 @@ package numericalOperations;
 public class Addition {
 
 
-    //Addition function for double values
+    //Addition function for double values and return double
     public static Double AdditionDoubleValues(String value1,String value2){
         Double result=null;
 
@@ -12,7 +12,7 @@ public class Addition {
         return result;
     }
 
-    //Additon function for integer values
+    //Additon function for integer values and return int
     public static int AdditionIntValues(String value1,String value2)
     {
         int result= 0;
@@ -21,5 +21,6 @@ public class Addition {
 
         return result;
     }
+
 
 }
