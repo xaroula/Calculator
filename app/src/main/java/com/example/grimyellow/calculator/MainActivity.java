@@ -15,6 +15,7 @@ import static numericalOperations.Multiplication.DoubleValues;
 public class MainActivity extends AppCompatActivity
 {
 private TextView FirstValue;
+private TextView Symbols;
 private TextView SecondValue;
 private Button BtnPlus;
 private Button BtnMin;
@@ -31,6 +32,8 @@ private Button Btn8;
 private Button Btn9;
 private Button Btn0;
 private Button Clear;
+private double val1 = Double.NaN;
+private double val2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -102,28 +105,36 @@ private Button Clear;
         BtnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SecondValue.setText("+");
+                compute();
+                SecondValue.setText(String.valueOf(val1));
+                Symbols.setText("+");
                 FirstValue.setText(null);
             }
         });
         BtnMin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SecondValue.setText("-");
+                compute();
+                SecondValue.setText(String.valueOf(val1));
+                Symbols.setText("-");
                 FirstValue.setText(null);
             }
         });
         BtnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SecondValue.setText("*");
+                compute();
+               SecondValue.setText(String.valueOf(val1));
+                Symbols.setText("*");
                 FirstValue.setText(null);
             }
         });
         BtnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SecondValue.setText("/");
+                compute();
+                SecondValue.setText(String.valueOf(val1));
+                Symbols.setText("/");
                 FirstValue.setText(null);
             }
         });
@@ -158,8 +169,17 @@ private Button Clear;
         BtnSub=(Button) findViewById(R.id.BtnSub);
         BtnDiv=(Button) findViewById(R.id.BtnDiv);
         FirstValue = (TextView)findViewById(R.id.FirstValue);
+        Symbols=(TextView)findViewById(R.id.Symbols) ;
         SecondValue = (TextView)findViewById(R.id.SecondValue);
         Clear = (Button) findViewById(R.id.BtnC);
+    }
+     private void compute(){
+        if(!Double.isNaN(val1)){
+            val2=Double.parseDouble(FirstValue.getText().toString());
+        }
+        else{
+            val1=Double.parseDouble(FirstValue.getText().toString());
+        }
     }
 
     //Diavaste to readMeAddition gia to addition etc
