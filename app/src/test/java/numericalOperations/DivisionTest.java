@@ -23,8 +23,8 @@ public class DivisionTest {
     {
         String value1="15.2";
         String value2="0.0";
-        String expected = "Infinity";
-        String actual = DivideValues(value1,value2);
+        double expected = Double.POSITIVE_INFINITY;
+        double actual = DivideValues(value1,value2);
         assertEquals(expected,actual);
 
     }
