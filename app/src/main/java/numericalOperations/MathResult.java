@@ -3,8 +3,6 @@ package numericalOperations;
 
 import static numericalOperations.Addition.AdditionDoubleValues;
 import static numericalOperations.Division.DivideValues;
-import static numericalOperations.Multiplication.Multiply;
-import static numericalOperations.Subtraction.Subtract;
 
 public class MathResult {
 
@@ -15,10 +13,10 @@ public class MathResult {
                result =AdditionDoubleValues(value1,value2);
                 break;
            case("-"):
-               result = Subtract(value1,value2);
+               result = Subtraction.DoubleValues(value1,value2);
                break;
            case("*"):
-              result = Multiply(value1,value2);
+              result = Multiplication.DoubleValues(value1,value2);
                break;
            case ("/"):
              result = DivideValues(value1,value2);
