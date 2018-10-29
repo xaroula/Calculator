@@ -2,18 +2,17 @@ package numericalOperations;
 
 public class Division {
 
-    //Divide values and send a warning message if user tries to divide by zero
-    public static String DivideValues(String value1, String value2)
+    //Divide two given values.If user divides by zero  return infinity.
+    public static Double DivideValues(String value1, String value2)
     {
-       double result;
-       String errorMessage="Infinity";
-       try {
-           result = Double.parseDouble(value1) / Double.parseDouble(value2);
-           } catch(ArithmeticException e) //case that user divides by zero
-            {
-               return errorMessage;
-            }
+        double inf = Double.POSITIVE_INFINITY;
+        double result=0.0;
+             try {
+                    result=Double.parseDouble(value1)/Double.parseDouble(value2);
+                 } catch (ArithmeticException  e) {
+                  result=inf;
+             }
 
-        return String.valueOf(result);
+        return result;
     }
 }
