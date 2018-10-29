@@ -6,38 +6,43 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-import static numericalOperations.Addition.AdditionDoubleValues;
-import static numericalOperations.Multiplication.DoubleValues;
+import numericalOperations.MathResult;
 
 
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity
-{
-private TextView FirstValue;
-private TextView SecondValue;
-private Button BtnPlus;
-private Button BtnMin;
-private Button BtnSub;
-private Button BtnDiv;
-private Button Btn1;
-private Button Btn2;
-private Button Btn3;
-private Button Btn4;
-private Button Btn5;
-private Button Btn6;
-private Button Btn7;
-private Button Btn8;
-private Button Btn9;
-private Button Btn0;
-private Button Clear;
+    private TextView tvOperator;
+    private TextView tvResult;
+    private String passedValue1="";
+    private String passedValue2="";
+    private String passedOperator="";
+    private TextView FirstValue;
+    private TextView SecondValue;
+    private double result;
+    private Button BtnPlus;
+    private Button BtnMin;
+    private Button BtnSub;
+    private Button BtnDiv;
+    private Button Btn1;
+    private Button Btn2;
+    private Button Btn3;
+    private Button Btn4;
+    private Button Btn5;
+    private Button Btn6;
+    private Button Btn7;
+    private Button Btn8;
+    private Button Btn9;
+    private Button Btn0;
+    private Button Clear;
+    private double val1 = Double.NaN;
+    private double val2=0.0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
         setupUIViews();
         Btn0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,28 +107,36 @@ private Button Clear;
         BtnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SecondValue.setText("+");
+                compute();
+                SecondValue.setText(String.valueOf(val1));
+                tvOperator.setText("+");
                 FirstValue.setText(null);
             }
         });
         BtnMin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SecondValue.setText("-");
+                compute();
+                SecondValue.setText(String.valueOf(val1));
+                tvOperator.setText("-");
                 FirstValue.setText(null);
             }
         });
         BtnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SecondValue.setText("*");
+                compute();
+                SecondValue.setText(String.valueOf(val1));
+                tvOperator.setText("*");
                 FirstValue.setText(null);
             }
         });
         BtnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SecondValue.setText("/");
+                compute();
+                SecondValue.setText(String.valueOf(val1));
+                tvOperator.setText("/");
                 FirstValue.setText(null);
             }
         });
@@ -135,14 +148,27 @@ private Button Clear;
                     FirstValue.setText(name.subSequence(0,name.length()-1));
                 }
                 else{
-                 FirstValue.setText(null);
-                 SecondValue.setText(null);
+                    FirstValue.setText(null);
+                    SecondValue.setText(null);
                 }
             }
         });
-       
+        
+        tvResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showEqual(v);
+            }
+
+        });
+
+
+
     }
-        private void setupUIViews() {
+
+    private void setupUIViews()
+    {
+
         Btn1=(Button) findViewById(R.id.Btn1);
         Btn2=(Button) findViewById(R.id.Btn2);
         Btn3=(Button) findViewById(R.id.Btn3);
@@ -160,7 +186,30 @@ private Button Clear;
         FirstValue = (TextView)findViewById(R.id.FirstValue);
         SecondValue = (TextView)findViewById(R.id.SecondValue);
         Clear = (Button) findViewById(R.id.BtnC);
+        tvResult = (TextView) findViewById(R.id.Result);
+        tvOperator = (TextView) findViewById(R.id.Symbols);
+
+
+
+    }
+    private void compute(){
+        if(!Double.isNaN(val1)){
+            val2=Double.parseDouble(FirstValue.getText().toString());
+        }
+        else{
+            val1=Double.parseDouble(FirstValue.getText().toString());
+        }
     }
 
-    //Diavaste to readMeAddition gia to addition etc
+
+    public void showEqual(View v){
+
+        passedValue1 = FirstValue.toString();
+        passedValue2 = SecondValue.toString();
+        passedOperator = tvOperator.toString();
+        result = MathResult.printResult(passedValue1, passedValue2, passedOperator);
+        String finalResult= new Double (result).toString();
+        tvResult.setText(finalResult);
+    }
+
 }
