@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     FirstValue.setText(null);
                     SecondValue.setText(null);
+                    tvOperator.setText(null);
                 }
             }
         });
