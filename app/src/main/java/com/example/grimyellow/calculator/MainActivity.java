@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button BtnMin;
     private Button BtnSub;
     private Button BtnDiv;
+    private Button Btnfloat;
     private Button Btn1;
     private Button Btn2;
     private Button Btn3;
@@ -104,6 +105,12 @@ public class MainActivity extends AppCompatActivity {
                 FirstValue.setText(FirstValue.getText().toString() + "9");
             }
         });
+        Btnfloat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirstValue.setText(FirstValue.getText().toString() + ".");
+            }
+        });
         BtnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
         Btn8=(Button) findViewById(R.id.Btn8);
         Btn9=(Button) findViewById(R.id.Btn9);
         Btn0=(Button) findViewById(R.id.Btn0);
+        Btnfloat=(Button) findViewById(R.id.Btnfloat);
         BtnPlus=(Button) findViewById(R.id.BtnPlus);
         BtnMin=(Button) findViewById(R.id.BtnMin);
         BtnSub=(Button) findViewById(R.id.BtnSub);
