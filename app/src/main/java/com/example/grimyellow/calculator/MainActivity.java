@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView FirstValue;
     private TextView SecondValue;
     private double result;
+
     private Button Clear;
     private double val1 = Double.NaN;
     private double val2=0.0;
@@ -31,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setupUIViews();
 
-
-
-
         Clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     FirstValue.setText(null);
                     SecondValue.setText(null);
                     tvOperator.setText(null);
-                    tvResult.setText(null);
+
                 }
             }
         });
@@ -64,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupUIViews()
     {
-
-
         FirstValue = (TextView)findViewById(R.id.FirstValue);
         SecondValue = (TextView)findViewById(R.id.SecondValue);
         Clear = (Button) findViewById(R.id.BtnC);
