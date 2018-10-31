@@ -19,6 +19,8 @@ public class MultiplicationTest
         assertEquals("should be correct",expected,result);
     }
 
+
+
     @Test
     public void MultiplicationResultIsCorrectTest2()
     {

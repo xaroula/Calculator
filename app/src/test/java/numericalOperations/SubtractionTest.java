@@ -31,6 +31,7 @@ public class SubtractionTest {
         Double result=Subtraction.DoubleValues(value1,value2);
         assertEquals("should be correct",expected,result );
     }
+    @Test
     public void SubtractionDoubleValues_isCorrect4()
     {
         String value1="10";
@@ -39,6 +40,7 @@ public class SubtractionTest {
         Double result=Subtraction.DoubleValues(value1,value2);
         assertEquals("should be correct",expected,result );
     }
+    @Test
     public void SubtractionDoubleValues_isCorrect5()
     {
         String value1="0.0";
